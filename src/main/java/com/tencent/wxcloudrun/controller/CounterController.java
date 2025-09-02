@@ -1,5 +1,6 @@
 package com.tencent.wxcloudrun.controller;
 
+import com.tencent.wxcloudrun.dto.HouseInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.tencent.wxcloudrun.config.ApiResponse;
@@ -77,6 +78,17 @@ public class CounterController {
       return ApiResponse.ok(0);
     } else {
       return ApiResponse.error("参数action错误");
+    }
+  }/**
+   *  API response json
+   */
+  @PostMapping(value = "/api/submit")
+  ApiResponse create(@RequestBody HouseInfo houseInfo) {
+    try{
+      System.out.println(houseInfo);
+      return ApiResponse.ok("提交成功");
+    }catch (Exception e){
+      return ApiResponse.error("提交失败");
     }
   }
   
