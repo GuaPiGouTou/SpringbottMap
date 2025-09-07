@@ -88,7 +88,7 @@ public class CounterController {
   }/**
    *  API response json
    */
-  @PostMapping(value = "/api/submit")
+  @PostMapping(value = "/a")
   ApiResponse create(@RequestBody HouseInfo houseInfo) {
     try{
       System.out.println(houseInfo);
