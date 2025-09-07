@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.HouseInfoMapper">
+
+    <resultMap id="houseInfoMap" type="com.tencent.wxcloudrun.model.HouseInfo">
+        <id property="id" column="id"/>
+        <result property="longitude" column="longitude"/>
+        <result property="latitude" column="latitude"/>
+        <result property="address" column="address"/>
+        <result property="title" column="title"/>
+        <result property="location" column="location"/>
+        <result property="area" column="area"/>
+        <result property="houseType" column="house_type"/>
+        <result property="roomCount" column="room_count"/>
+        <result property="wechat" column="wechat"/>
+        <result property="phone" column="phone"/>
+        <result property="paymentOptions" column="payment_options"
+                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="houseFacilities" column="house_facilities"
+                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="videoIds" column="video_ids"
+                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+    </resultMap>
+
+    <insert id="insertHouseInfo" parameterType="com.tencent.wxcloudrun.model.HouseInfo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `property` (
+            [longitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L10-L10), [latitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L11-L11), [address](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L12-L12), [title](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L15-L15), [location](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L16-L16),
+            [area](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L17-L17), `house_type`, `room_count`, [wechat](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L22-L22), [phone](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L23-L23),
+            `payment_options`, `house_facilities`, `video_ids`
+            )
+        VALUES (
+                   #{longitude}, #{latitude}, #{address}, #{title}, #{location},
+                   #{area}, #{houseType}, #{roomCount}, #{wechat}, #{phone},
+                   #{paymentOptions, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
+                   #{houseFacilities, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
+                   #{videoIds, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler}
+               )
+    </insert>
+
+    <select id="getHouseInfoById" resultMap="houseInfoMap" parameterType="java.lang.Long">
+        SELECT
+            [id](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\Counter.java#L10-L10), [longitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L10-L10), [latitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L11-L11), [address](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L12-L12), [title](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L15-L15), [location](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L16-L16),
+            [area](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L17-L17), `house_type`, `room_count`, [wechat](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L22-L22), [phone](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L23-L23),
+            `payment_options`, `house_facilities`, `video_ids`
+        FROM `property`
+        WHERE id = #{id}
+    </select>
+
+</mapper>
