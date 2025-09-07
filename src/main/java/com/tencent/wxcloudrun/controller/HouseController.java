@@ -14,11 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/house")
 public class HouseController {
     @Autowired
     private HouseInfoService houseInfoService;
-    @PostMapping(value = "/submit")
+    @PostMapping(value = "/api/house/submit")
     public JsonResult<HouseInfo> submit(@RequestBody HouseInfo houseInfo) {
         HouseInfo houseInfo1 = houseInfoService.saveHouse(houseInfo);
 //        HouseInfo  testHouseInfo = new HouseInfo();
