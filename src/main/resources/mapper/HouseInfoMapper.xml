@@ -24,10 +24,20 @@
 
     <insert id="insertHouseInfo" parameterType="com.tencent.wxcloudrun.model.HouseInfo" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO `property` (
-            [longitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L10-L10), [latitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L11-L11), [address](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L12-L12), [title](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L15-L15), [location](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L16-L16),
-            [area](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L17-L17), `house_type`, `room_count`, [wechat](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L22-L22), [phone](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L23-L23),
-            `payment_options`, `house_facilities`, `video_ids`
-            )
+            `longitude`,
+            `latitude`,
+            `address`,
+            `title`,
+            `location`,
+            `area`,
+            `house_type`,
+            `room_count`,
+            `wechat`,
+            `phone`,
+            `payment_options`,
+            `house_facilities`,
+            `video_ids`
+        )
         VALUES (
                    #{longitude}, #{latitude}, #{address}, #{title}, #{location},
                    #{area}, #{houseType}, #{roomCount}, #{wechat}, #{phone},
@@ -38,10 +48,7 @@
     </insert>
 
     <select id="getHouseInfoById" resultMap="houseInfoMap" parameterType="java.lang.Long">
-        SELECT
-            [id](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\Counter.java#L10-L10), [longitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L10-L10), [latitude](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L11-L11), [address](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L12-L12), [title](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L15-L15), [location](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L16-L16),
-            [area](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L17-L17), `house_type`, `room_count`, [wechat](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L22-L22), [phone](file://E:\git\SpringbottMap\src\main\java\com\tencent\wxcloudrun\model\HouseInfo.java#L23-L23),
-            `payment_options`, `house_facilities`, `video_ids`
+        SELECT *
         FROM `property`
         WHERE id = #{id}
     </select>
