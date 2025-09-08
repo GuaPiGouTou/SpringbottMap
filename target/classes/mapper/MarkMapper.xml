@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tencent.wxcloudrun.dao.MarkMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="markResultMap" type="com.tencent.wxcloudrun.model.Mark">
+        <id property="markID" column="markID" />
+        <result property="longitude" column="longitude" />
+        <result property="latitude" column="latitude" />
+        <result property="id" column="id" />
+    </resultMap>
+
+    <!-- 插入标记 -->
+    <insert id="insertMark" parameterType="com.tencent.wxcloudrun.model.Mark" useGeneratedKeys="true" keyProperty="markID">
+        INSERT INTO `mark` (
+            `longitude`,
+            `latitude`,
+            `id`
+        )
+        VALUES (
+                   #{longitude},
+                   #{latitude},
+                   #{id}
+               )
+    </insert>
+
+    <!-- 根据主键查询标记 -->
+    <select id="getMarkById" resultMap="markResultMap" parameterType="java.lang.Integer">
+        SELECT *
+        FROM `mark`
+        WHERE markID = #{markID}
+    </select>
+
+    <!-- 根据房源ID查询标记 -->
+    <select id="getMarkByPropertyId" resultMap="markResultMap" parameterType="java.lang.Integer">
+        SELECT *
+        FROM `mark`
+        WHERE id = #{id}
+    </select>
+
+    <!-- 更新标记信息 -->
+    <update id="updateMark" parameterType="com.tencent.wxcloudrun.model.Mark">
+        UPDATE `mark`
+        SET
+            longitude = #{longitude},
+            latitude = #{latitude},
+            id = #{id}
+        WHERE markID = #{markID}
+    </update>
+
+    <!-- 删除标记 -->
+    <delete id="deleteMark" parameterType="java.lang.Integer">
+        DELETE FROM `mark`
+        WHERE markID = #{markID}
+    </delete>
+
+    <!-- 根据房源ID删除标记 -->
+    <delete id="deleteMarkByPropertyId" parameterType="java.lang.Integer">
+        DELETE FROM `mark`
+        WHERE id = #{id}
+    </delete>
+
+    <!-- 获取所有标记 -->
+    <select id="getAllMarks" resultMap="markResultMap">
+        SELECT *
+        FROM `mark`
+    </select>
+
+    <!-- 获取范围内的标记 -->
+    <select id="getMarksInRange" resultMap="markResultMap">
+        SELECT *
+        FROM `mark`
+        WHERE longitude BETWEEN #{minLng} AND #{maxLng}
+          AND latitude BETWEEN #{minLat} AND #{maxLat}
+    </select>
+
+</mapper>
