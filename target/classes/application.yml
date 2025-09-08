@@ -18,6 +18,5 @@ mybatis:
   type-handlers-package: com.tencent.wxcloudrun.utils
 
 logging:
-  config: logback.xml
   level:
     com.itcodai.course03.dao: trace
