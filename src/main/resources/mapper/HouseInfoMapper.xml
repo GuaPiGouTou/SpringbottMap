@@ -47,6 +47,7 @@
                )
     </insert>
 
+
     <select id="getHouseInfoById" resultMap="houseInfoMap" parameterType="java.lang.Long">
         SELECT *
         FROM `property`

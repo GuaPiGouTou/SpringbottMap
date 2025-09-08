@@ -32,13 +32,6 @@ public class CounterController {
     this.logger = LoggerFactory.getLogger(CounterController.class);
   }
 
-  @Autowired
-  private HouseInfoService houseInfoService;
-  @PostMapping(value = "/submit")
-  public JsonResult<HouseInfo> submit(@RequestBody HouseInfo houseInfo) {
-    HouseInfo houseInfo1 = houseInfoService.saveHouse(houseInfo);
-    return new JsonResult<>(houseInfo1);
-  }
   /**
    * 获取当前计数
    * @return API response json

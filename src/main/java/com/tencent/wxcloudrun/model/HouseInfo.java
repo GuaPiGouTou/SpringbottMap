@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.Map;
 @Data
 public class HouseInfo {
+    //索引
     private Long id;
     // 位置信息 - 建议使用BigDecimal保证精度
     private BigDecimal longitude; // 经度(地图选择上传)

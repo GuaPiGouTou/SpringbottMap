@@ -19,35 +19,17 @@ public class HouseController {
     private HouseInfoService houseInfoService;
     @PostMapping(value = "/api/house/submit")
     public JsonResult<HouseInfo> submit(@RequestBody HouseInfo houseInfo) {
-        HouseInfo houseInfo1 = houseInfoService.saveHouse(houseInfo);
-//        HouseInfo  testHouseInfo = new HouseInfo();
-//        testHouseInfo.setId(1L);
-//        testHouseInfo.setLongitude(new BigDecimal("116.404"));
-//        testHouseInfo.setLatitude(new BigDecimal("39.915"));
-//        testHouseInfo.setAddress("北京市东城区");
-//        testHouseInfo.setTitle("测试房源");
-//        testHouseInfo.setLocation("王府井");
-//        testHouseInfo.setArea("80平米");
-//        testHouseInfo.setHouseType("两室一厅");
-//        testHouseInfo.setRoomCount(2);
-//        testHouseInfo.setWechat("test_wechat");
-//        testHouseInfo.setPhone("13800138000");
-//
-//        // 设置支付选项
-//        Map<String, BigDecimal> paymentOptions = new HashMap<>();
-//        paymentOptions.put("月租", new BigDecimal("5000"));
-//        paymentOptions.put("季付", new BigDecimal("14500"));
-//        testHouseInfo.setPaymentOptions(paymentOptions);
-//
-//        // 设置设施信息
-//        boolean[] facilities = {true, false, true, true, false};
-//        testHouseInfo.setHouseFacilities(facilities);
-//
-//        // 设置视频ID
-//        String[] videoIds = {"video1", "video2"};
-//        testHouseInfo.setVideoIds(videoIds);
-//        HouseInfo houseInfo1 = houseInfoService.saveHouse(testHouseInfo);
-        return new JsonResult<>(houseInfo1);
+        int code = houseInfoService.saveHouse(houseInfo);
+        if (code == 200)
+        {
+            return new JsonResult<>("200", "提交房源信息成功");
+        } else if (code == 705) {
+            return new JsonResult<>("705", "提交房源信息失败");
+        } else if (code == 805) {
+            return new JsonResult<>("805", "提交房源标记失败");
+        }
+
+        return new JsonResult<>("905", "系统异常");
     }
 
 

@@ -4,6 +4,6 @@ import com.tencent.wxcloudrun.model.HouseInfo;
 import org.apache.ibatis.annotations.Param;
 
 public interface HouseInfoMapper {
-    void insertHouseInfo(HouseInfo houseInfo);
+    int insertHouseInfo(HouseInfo houseInfo);
     HouseInfo getHouseById(@Param("id") Long id);
 }
