@@ -52,7 +52,7 @@ public class CounterController {
       count = counter.get().getCount();
     }
 
-    return ApiResponse.ok(count);
+    return ApiResponse.ok(count+"成功访问");
   }
 
 
