@@ -157,7 +157,8 @@ curl -X POST -H 'content-type: application/json' -d '{"action": "inc"}' https://
 #### 响应结果
 
 - `code`：错误码
-- `data`：当前计数值
+- `data`：无
+- `msg`:信息提示
 
 ##### 响应结果示例
 
@@ -191,6 +192,40 @@ curl -X POST -H 'content-type: application/json' -d '{
   "videoIds": ["vid123456", "vid789012", "vid345678"]
 }' https://<云托管服务域名>/api/house/submit
 ```
+
+### `GET /api/mark/get`
+
+获取所有标记
+
+#### 请求参数
+
+无
+
+#### 响应结果
+
+- `code`：错误码
+- `data`：所有标记
+- `msg`:信息提示
+
+##### 响应结果示例
+
+```json
+{
+  "code": 0,
+  "data": 42,
+  "msg":"获取所有标记成功"
+}
+```
+
+#### 调用示例
+
+```
+curl https://<云托管服务域名>/api/count
+```
+
+
+
+
 
 ## 
 
