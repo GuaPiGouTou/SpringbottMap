@@ -34,7 +34,7 @@ public class JsonResult<T> {
      * 若没有数据返回，默认状态码为0，提示信息为：操作成功！
      */
     public JsonResult() {
-        this.code = "0";
+        this.code = "200";
         this.msg = "操作成功！";
     }
 
@@ -49,23 +49,23 @@ public class JsonResult<T> {
     }
 
     /**
-     * 有数据返回时，状态码为0，默认提示信息为：操作成功！
+     * 有数据返回时，状态码为200，默认提示信息为：操作成功！
      * @param data
      */
     public JsonResult(T data) {
         this.data = data;
-        this.code = "0";
+        this.code = "200";
         this.msg = "操作成功！";
     }
 
     /**
-     * 有数据返回，状态码为0，人为指定提示信息
+     * 有数据返回，状态码为200，人为指定提示信息
      * @param data
      * @param msg
      */
     public JsonResult(T data, String msg) {
         this.data = data;
-        this.code = "0";
+        this.code = "200";
         this.msg = msg;
     }
     // 省略get和set方法
