@@ -15,12 +15,14 @@
         INSERT INTO `mark` (
             `longitude`,
             `latitude`,
-            `id`
+            `id`,
+            `title`
         )
         VALUES (
                    #{longitude},
                    #{latitude},
-                   #{id}
+                   #{id},
+                  #{title}
                )
     </insert>
 

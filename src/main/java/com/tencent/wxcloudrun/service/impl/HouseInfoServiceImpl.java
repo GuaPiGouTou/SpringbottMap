@@ -46,6 +46,7 @@ public class HouseInfoServiceImpl implements HouseInfoService {
         mark.setId(houseInfo.getId());
         mark.setLongitude(houseInfo.getLongitude());
         mark.setLatitude(houseInfo.getLatitude());
+        mark.setTitle(houseInfo.getTitle());
         // 可以根据需要添加更多字段
         return mark;
     }
