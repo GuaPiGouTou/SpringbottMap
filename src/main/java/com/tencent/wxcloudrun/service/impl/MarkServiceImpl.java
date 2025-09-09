@@ -6,6 +6,8 @@ import com.tencent.wxcloudrun.service.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MarkServiceImpl implements MarkService {
 
@@ -20,5 +22,11 @@ public class MarkServiceImpl implements MarkService {
     public int insertMark(Mark mark) {
         int count = markMapper.insertMark(mark);
         return count;
+    }
+
+    @Override
+    public List<Mark> getAllMarks(String houseId) {
+        List< Mark> marks = markMapper.getAllMarks();
+        return marks;
     }
 }
