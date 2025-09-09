@@ -109,7 +109,93 @@ curl https://<云托管服务域名>/api/count
 curl -X POST -H 'content-type: application/json' -d '{"action": "inc"}' https://<云托管服务域名>/api/count
 ```
 
+### `POST /api/house/submit`
+
+上传房源信息
+
+#### 请求参数
+
+- `id`:`Long`类型，索引
+- `longitude`:`BigDecimal`类型，经度
+- `latitude`:`BigDecimal`类型，纬度
+- `address`:`String`类型，详细地址
+- `title`:`String`类型，标题
+- `location`:`String`类型，具体地点
+- `area`:`String`类型，面积
+- `houseType`:`String`类型，房型
+- `roomCount`:`int`类型，房间数
+- `wechat`:`String`类型，微信
+- `phone`:`String`类型，手机号
+- `paymentOptions`:`Map<String, BigDecimal>`类型，支付方式与价格映射
+- `houseFacilities`:`boolean[]`类型，设施信息
+- `videoIds`:`String[]`类型，媒体上传后的UID组
+
+##### 请求参数示例
+
+```
+{
+  "longitude": 116.404,
+  "latitude": 39.915,
+  "address": "北京市朝阳区建国门外大街1号",
+  "title": "国贸中心豪华公寓",
+  "location": "国贸CBD",
+  "area": "120",
+  "houseType": "三室两厅",
+  "roomCount": 3,
+  "wechat": "guomao_apartment",
+  "phone": "13800138000",
+  "paymentOptions": {
+    "押一付三": 15000.00,
+    "半年付": 28000.00,
+    "年付": 50000.00
+  },
+  "houseFacilities": [true, false, true, true, false, true],
+  "videoIds": ["vid123456", "vid789012", "vid345678"]
+}
+```
+
+#### 响应结果
+
+- `code`：错误码
+- `data`：当前计数值
+
+##### 响应结果示例
+
+```json
+{
+  "code": 0,
+  "msg":"操作成功！"
+}
+```
+
+#### 调用示例
+
+```
+curl -X POST -H 'content-type: application/json' -d '{
+  "longitude": 116.404,
+  "latitude": 39.915,
+  "address": "北京市朝阳区建国门外大街1号",
+  "title": "国贸中心豪华公寓",
+  "location": "国贸CBD",
+  "area": "120",
+  "houseType": "三室两厅",
+  "roomCount": 3,
+  "wechat": "guomao_apartment",
+  "phone": "13800138000",
+  "paymentOptions": {
+    "押一付三": 15000.00,
+    "半年付": 28000.00,
+    "年付": 50000.00
+  },
+  "houseFacilities": [true, false, true, true, false, true],
+  "videoIds": ["vid123456", "vid789012", "vid345678"]
+}' https://<云托管服务域名>/api/house/submit
+```
+
+## 
+
 ## 使用注意
+
 如果不是通过微信云托管控制台部署模板代码，而是自行复制/下载模板代码后，手动新建一个服务并部署，需要在「服务设置」中补全以下环境变量，才可正常使用，否则会引发无法连接数据库，进而导致部署失败。
 - MYSQL_ADDRESS
 - MYSQL_PASSWORD

@@ -8,6 +8,8 @@ spring:
     url: jdbc:mysql://${MYSQL_ADDRESS}/${MYSQL_DATABASE:springboot_demo}
     username: ${MYSQL_USERNAME}
     password: ${MySQL_PASSWORD}
+#    thymeleaf:
+#      cache: false #关闭缓存
   mvc:
     view:
       suffix: .html
