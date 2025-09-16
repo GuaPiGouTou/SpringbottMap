@@ -5,6 +5,7 @@ import com.tencent.wxcloudrun.model.Mark;
 import com.tencent.wxcloudrun.service.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,12 +20,14 @@ public class MarkServiceImpl implements MarkService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int insertMark(Mark mark) {
         int count = markMapper.insertMark(mark);
         return count;
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public List<Mark> getAllMarks(String houseId) {
         List< Mark> marks = markMapper.getAllMarks();
         return marks;
