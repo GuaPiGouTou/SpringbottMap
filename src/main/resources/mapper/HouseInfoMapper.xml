@@ -10,7 +10,7 @@
         <result property="title" column="title"/>
         <result property="location" column="location"/>
         <result property="area" column="area"/>
-        <result property="roomCount" column="room_count"/>
+        <result property="roomcount" column="roomcount"/>
         <result property="wechat" column="wechat"/>
         <result property="phone" column="phone"/>
 
@@ -24,13 +24,13 @@
             `title`,
             `location`,
             `area`,
-            `room_count`,
+            `roomcount`,
             `wechat`,
             `phone`
         )
         VALUES (
                    #{longitude}, #{latitude}, #{address}, #{title}, #{location},
-                   #{area}, #{roomCount}, #{wechat}, #{phone}
+                   #{area}, #{roomcount}, #{wechat}, #{phone}
 
                )
     </insert>
