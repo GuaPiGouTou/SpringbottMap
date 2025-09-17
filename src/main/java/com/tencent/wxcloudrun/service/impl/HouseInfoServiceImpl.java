@@ -33,11 +33,11 @@ public class HouseInfoServiceImpl implements HouseInfoService {
             code = 705;
         }
 
-//        // 2. 查询标记是否插入
-//        int markInsertCount = markService.getMarkByPropertyId(houseInfo.getId().intValue());
-//        if (markInsertCount <= 0) {
-//            code = 805;
-//        }
+        // 2. 查询标记是否插入
+        int markInsertCount = markService.getMarkByPropertyId(houseInfo.getId().intValue());
+        if (markInsertCount <= 0) {
+            code = 805;
+        }
 
         // 3. 返回成功状态码
         return code;
