@@ -242,3 +242,14 @@ curl https://<云托管服务域名>/api/count
 
 [MIT](./LICENSE)
 
+
+
+## 更新日志
+
+### 2025-9-17
+
+加入阿里 FastJson 作为JSON MessageConverter
+
+config目录下创建了：`fastJsonConfig``JsonResult`
+
+FastJson配置类以及Json返回统一格式化

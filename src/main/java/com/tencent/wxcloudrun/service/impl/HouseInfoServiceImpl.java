@@ -33,29 +33,17 @@ public class HouseInfoServiceImpl implements HouseInfoService {
             code = 705;
         }
 
-        // 2. 准备标记数据
-        Mark mark = createMarkFromHouseInfo(houseInfo);
-
-        // 3. 插入标记信息
-        int markInsertCount = markService.insertMark(mark);
+        // 2. 查询标记是否插入
+        int markInsertCount = markService.getMarkByPropertyId(houseInfo.getId().intValue());
         if (markInsertCount <= 0) {
             code = 805;
         }
 
-        // 4. 返回成功状态码
+        // 3. 返回成功状态码
         return code;
     }
 
-    private Mark createMarkFromHouseInfo(HouseInfo houseInfo) {
-        Mark mark = new Mark();
-        mark.setId(houseInfo.getId());
-        mark.setLongitude(houseInfo.getLongitude());
-        mark.setLatitude(houseInfo.getLatitude());
-        mark.setTitle(houseInfo.getTitle());
-        // 可以根据需要添加更多字段
-        return mark;
-    }
-
+  
     @Override
     @Transactional(rollbackFor = Exception.class)
     public HouseInfo getHouseById(Long id) {

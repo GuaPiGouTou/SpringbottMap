@@ -7,4 +7,5 @@ import java.util.List;
 public interface MarkMapper {
     int insertMark(Mark mark);
     List< Mark> getAllMarks();
+    int getMarkByPropertyId(int id);
 }

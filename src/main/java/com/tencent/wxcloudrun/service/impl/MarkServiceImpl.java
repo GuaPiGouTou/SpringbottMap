@@ -32,4 +32,10 @@ public class MarkServiceImpl implements MarkService {
         List< Mark> marks = markMapper.getAllMarks();
         return marks;
     }
+
+    @Override
+    public int getMarkByPropertyId(int id) {
+        int count = markMapper.getMarkByPropertyId(id);
+        return count;
+    }
 }
