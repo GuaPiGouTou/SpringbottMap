@@ -10,16 +10,10 @@
         <result property="title" column="title"/>
         <result property="location" column="location"/>
         <result property="area" column="area"/>
-        <result property="houseType" column="house_type"/>
         <result property="roomCount" column="room_count"/>
         <result property="wechat" column="wechat"/>
         <result property="phone" column="phone"/>
-        <result property="paymentOptions" column="payment_options"
-                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
-        <result property="houseFacilities" column="house_facilities"
-                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
-        <result property="videoIds" column="video_ids"
-                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+
     </resultMap>
 
     <insert id="insertHouseInfo" parameterType="com.tencent.wxcloudrun.model.HouseInfo" useGeneratedKeys="true" keyProperty="id">
@@ -30,20 +24,14 @@
             `title`,
             `location`,
             `area`,
-            `house_type`,
             `room_count`,
             `wechat`,
-            `phone`,
-            `payment_options`,
-            `house_facilities`,
-            `video_ids`
+            `phone`
         )
         VALUES (
                    #{longitude}, #{latitude}, #{address}, #{title}, #{location},
-                   #{area}, #{houseType}, #{roomCount}, #{wechat}, #{phone},
-                   #{paymentOptions, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
-                   #{houseFacilities, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
-                   #{videoIds, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler}
+                   #{area}, #{roomCount}, #{wechat}, #{phone}
+
                )
     </insert>
 
@@ -53,5 +41,7 @@
         FROM `property`
         WHERE id = #{id}
     </select>
+
+
 
 </mapper>

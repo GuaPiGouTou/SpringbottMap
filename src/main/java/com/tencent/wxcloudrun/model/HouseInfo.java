@@ -17,21 +17,32 @@ public class HouseInfo {
     private String title;         // 标题
     private String location;      // 具体地点
     private String area;          // 面积
-    private String houseType;     // 房型
-    private int roomCount;        // 房间数 - 建议使用roomCount而非count
+    private int roomcount;        // 房间数 - 建议使用roomCount而非count
 
     // 联系方式
     private String wechat;        // 微信
     private String phone;         // 手机号
 
-    // 支付方式与价格映射
-    private Map<String, BigDecimal> paymentOptions;
 
-    // 设施信息 - 建议使用boolean数组或List<Boolean>
-    private boolean[] houseFacilities;
-
-    // 媒体上传后的UID组 - 建议使用数组或List
-    private String[] videoIds;
-
-
+//    // 支付方式与价格映射
+//    private Map<String, BigDecimal> paymentOptions;
+//
+//    // 设施信息 - 建议使用boolean数组或List<Boolean>
+//    private boolean[] houseFacilities;
+//
+//    // 媒体上传后的UID组 - 建议使用数组或List
+//    private String[] videoIds;
+/*
+*  #{paymentOptions, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
+                   #{houseFacilities, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
+                   #{videoIds, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler}
+* */
+/*
+*    <result property="paymentOptions" column="payment_options"
+                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="houseFacilities" column="house_facilities"
+                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="videoIds" column="video_ids"
+                typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+* */
 }
