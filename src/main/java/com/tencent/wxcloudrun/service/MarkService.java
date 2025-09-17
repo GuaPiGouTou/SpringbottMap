@@ -9,5 +9,5 @@ public interface MarkService {
 
     List<Mark> getAllMarks(String houseId);
 
-    int getMarkByPropertyId(int id);
+    Integer getMarkByPropertyId(int id);
 }

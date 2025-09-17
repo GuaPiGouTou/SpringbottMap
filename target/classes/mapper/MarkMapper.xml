@@ -34,7 +34,7 @@
     </select>
 
     <!-- 根据房源ID查询标记 -->
-    <select id="getMarkByPropertyId" resultMap="markResultMap" parameterType="java.lang.Integer">
+    <select id="getMarkByPropertyId" resultType="java.lang.Integer">
         SELECT *
         FROM `mark`
         WHERE id = #{id}

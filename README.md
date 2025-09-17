@@ -248,8 +248,46 @@ curl https://<云托管服务域名>/api/count
 
 ### 2025-9-17
 
-加入阿里 FastJson 作为JSON MessageConverter
+1.加入阿里 FastJson 作为JSON MessageConverter
 
 config目录下创建了：`fastJsonConfig``JsonResult`
 
 FastJson配置类以及Json返回统一格式化
+
+2.创建数据库mark，property数据库，加入触发器，使property插入数据时，将标记信息更新到mark中
+
+```
+-- 插入触发器
+DELIMITER $$
+CREATE TRIGGER `sync_property_to_mark_insert`
+AFTER INSERT ON `property`
+FOR EACH ROW
+BEGIN
+    INSERT INTO `mark` (
+        `id`, `longitude`, `latitude`, `title`, `count`
+    ) VALUES (
+        NEW.id, NEW.longitude, NEW.latitude, NEW.title, NEW.roomcount
+    );
+END
+$$
+DELIMITER ;
+
+-- 更新触发器
+DELIMITER $$
+CREATE TRIGGER `sync_property_to_mark_update`
+AFTER UPDATE ON `property`
+FOR EACH ROW
+BEGIN
+    UPDATE `mark` 
+    SET 
+        `longitude` = NEW.longitude,
+        `latitude` = NEW.latitude,
+        `title` = NEW.title,
+        `count` = NEW.roomcount
+    WHERE `id` = NEW.id;
+END
+$$
+DELIMITER ;
+```
+
+3.将房源信息表的接口编写完成，缺少room信息提交

@@ -34,8 +34,8 @@ public class MarkServiceImpl implements MarkService {
     }
 
     @Override
-    public int getMarkByPropertyId(int id) {
-        int count = markMapper.getMarkByPropertyId(id);
+    public Integer getMarkByPropertyId(int id) {
+        Integer count = markMapper.getMarkByPropertyId(id);
         return count;
     }
 }
