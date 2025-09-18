@@ -16,14 +16,14 @@
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="RoomId">
         INSERT INTO room_information (
-            room_number,
-            room_address,
-            room_area,
-            room_type,
-            room_payment,
-            room_furniture,
-            room_video,
-            property_id
+            RoomNumber,
+            RoomAddress,
+            RoomArea,
+            RoomType,
+            RoomPayment,
+            RoomFurniture,
+            RoomVideo,
+            PropertyId
         ) VALUES (
                      #{RoomNumber},
                      #{RoomAddress},
@@ -36,49 +36,49 @@
                  )
     </insert>
 
-    <update id="update">
-        UPDATE room_information SET
-                        room_number = #{RoomNumber},
-                        room_address = #{RoomAddress},
-                        room_area = #{RoomArea},
-                        room_type = #{RoomType},
-                        room_payment = #{RoomPayment, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
-                        room_furniture = #{RoomFurniture, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
-                        room_video = #{RoomVideo, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},
-                        property_id = #{PropertyId}
-        WHERE room_id = #{RoomId}
-    </update>
+<!--    <update id="update">-->
+<!--        UPDATE room_information SET-->
+<!--                        room_number = #{RoomNumber},-->
+<!--                        room_address = #{RoomAddress},-->
+<!--                        room_area = #{RoomArea},-->
+<!--                        room_type = #{RoomType},-->
+<!--                        room_payment = #{RoomPayment, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},-->
+<!--                        room_furniture = #{RoomFurniture, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},-->
+<!--                        room_video = #{RoomVideo, typeHandler=com.tencent.wxcloudrun.utils.JsonTypeHandler},-->
+<!--                        property_id = #{PropertyId}-->
+<!--        WHERE room_id = #{RoomId}-->
+<!--    </update>-->
 
-    <delete id="delete">
-        DELETE FROM room_information WHERE room_id = #{roomId}
-    </delete>
+<!--    <delete id="delete">-->
+<!--        DELETE FROM room_information WHERE room_id = #{roomId}-->
+<!--    </delete>-->
 
-    <select id="selectById" resultMap="RoomResultMap">
-        SELECT * FROM room_information WHERE room_id = #{roomId}
-    </select>
+<!--    <select id="selectById" resultMap="RoomResultMap">-->
+<!--        SELECT * FROM room_information WHERE room_id = #{roomId}-->
+<!--    </select>-->
 
-    <select id="selectAll" resultMap="RoomResultMap">
-        SELECT * FROM room_information
-    </select>
+<!--    <select id="selectAll" resultMap="RoomResultMap">-->
+<!--        SELECT * FROM room_information-->
+<!--    </select>-->
 
-    <select id="selectByPropertyId" resultMap="RoomResultMap">
-        SELECT * FROM room_information WHERE property_id = #{propertyId}
-    </select>
+<!--    <select id="selectByPropertyId" resultMap="RoomResultMap">-->
+<!--        SELECT * FROM room_information WHERE property_id = #{propertyId}-->
+<!--    </select>-->
 
-    <select id="selectByConditions" resultMap="RoomResultMap">
-        SELECT * FROM room_information
-        <where>
-            <if test="params.roomNumber != null">
-                AND room_number = #{params.roomNumber}
-            </if>
-            <if test="params.roomType != null">
-                AND room_type = #{params.roomType}
-            </if>
-            <if test="params.propertyId != null">
-                AND property_id = #{params.propertyId}
-            </if>
-            <!-- Add more conditions as needed -->
-        </where>
-    </select>
+<!--    <select id="selectByConditions" resultMap="RoomResultMap">-->
+<!--        SELECT * FROM room_information-->
+<!--        <where>-->
+<!--            <if test="params.roomNumber != null">-->
+<!--                AND room_number = #{params.roomNumber}-->
+<!--            </if>-->
+<!--            <if test="params.roomType != null">-->
+<!--                AND room_type = #{params.roomType}-->
+<!--            </if>-->
+<!--            <if test="params.propertyId != null">-->
+<!--                AND property_id = #{params.propertyId}-->
+<!--            </if>-->
+<!--            &lt;!&ndash; Add more conditions as needed &ndash;&gt;-->
+<!--        </where>-->
+<!--    </select>-->
 
 </mapper>

@@ -8,6 +8,8 @@
         <result property="longitude" column="longitude" />
         <result property="latitude" column="latitude" />
         <result property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="count" column="count" />
     </resultMap>
 
     <!-- 插入标记 -->
@@ -16,13 +18,15 @@
             `longitude`,
             `latitude`,
             `id`,
-            `title`
+            `title`,
+            `count`
         )
         VALUES (
                    #{longitude},
                    #{latitude},
                    #{id},
-                  #{title}
+                  #{title},
+                  #{count}
                )
     </insert>
 

@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 public class Mark {
     private Long markID; // 标记id
     private Long id; // 房源id
+    private Long count; // 房源id
     private BigDecimal longitude; // 经度(地图选择上传)
     private BigDecimal latitude;  // 纬度(地图选择上传)
     private String title; //标题
