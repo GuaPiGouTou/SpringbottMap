@@ -3,6 +3,7 @@ package com.tencent.wxcloudrun.model;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 @Data
@@ -25,6 +26,23 @@ public class HouseInfo {
     private String phone;         // 手机号
 
     private Room[] room;
+
+    @Override
+    public String toString() {
+        return "HouseInfo{" +
+                "id=" + id +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", address='" + address + '\'' +
+                ", title='" + title + '\'' +
+                ", location='" + location + '\'' +
+                ", area='" + area + '\'' +
+                ", roomcount=" + roomcount +
+                ", wechat='" + wechat + '\'' +
+                ", phone='" + phone + '\'' +
+                ", room=" + Arrays.toString(room) +
+                '}';
+    }
 //    // 支付方式与价格映射
 //    private Map<String, BigDecimal> paymentOptions;
 //

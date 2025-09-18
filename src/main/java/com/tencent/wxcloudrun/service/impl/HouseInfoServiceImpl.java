@@ -47,7 +47,7 @@ public class HouseInfoServiceImpl implements HouseInfoService {
 
         // 3. 插入房间信息
 
-
+        System.out.println(houseInfo.toString());
         for (int i = 0; i < houseInfo.getRoom().length; i++) {
             houseInfo.getRoom()[i].setPropertyId(houseInfo.getId());
             int roomcount = roomService.insertRoom(houseInfo.getRoom()[i]);
