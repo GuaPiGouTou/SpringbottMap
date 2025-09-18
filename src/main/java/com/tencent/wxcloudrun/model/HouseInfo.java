@@ -3,6 +3,7 @@ package com.tencent.wxcloudrun.model;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 @Data
 public class HouseInfo {
@@ -23,7 +24,7 @@ public class HouseInfo {
     private String wechat;        // 微信
     private String phone;         // 手机号
 
-
+    private Room[] room;
 //    // 支付方式与价格映射
 //    private Map<String, BigDecimal> paymentOptions;
 //

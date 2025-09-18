@@ -5,6 +5,7 @@ import com.tencent.wxcloudrun.model.HouseInfo;
 import com.tencent.wxcloudrun.model.Mark;
 import com.tencent.wxcloudrun.service.HouseInfoService;
 import com.tencent.wxcloudrun.service.MarkService;
+import com.tencent.wxcloudrun.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,9 @@ public class HouseInfoServiceImpl implements HouseInfoService {
     private MarkService markService;
 
     @Autowired
+    private RoomService roomService;
+
+    @Autowired
     public HouseInfoServiceImpl(HouseInfoMapper houseMapper) {
         this.houseMapper = houseMapper;
     }
@@ -31,12 +35,26 @@ public class HouseInfoServiceImpl implements HouseInfoService {
         int houseInsertCount = houseMapper.insertHouseInfo(houseInfo);
         if (houseInsertCount <= 0) {
             code = 705;
+            return code;
         }
 
         // 2. 查询标记是否插入
         int markInsertCount = markService.getMarkByPropertyId(houseInfo.getId().intValue());
         if (markInsertCount <= 0) {
             code = 805;
+            return code;
+        }
+
+        // 3. 插入房间信息
+
+
+        for (int i = 0; i < houseInfo.getRoom().length; i++) {
+            houseInfo.getRoom()[i].setPropertyId(houseInfo.getId());
+            int roomcount = roomService.insertRoom(houseInfo.getRoom()[i]);
+            if (roomcount <= 0) {
+                code = 905;
+                return code;
+            }
         }
 
         // 3. 返回成功状态码
