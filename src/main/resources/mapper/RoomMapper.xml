@@ -15,7 +15,7 @@
     </resultMap>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="RoomId">
-        INSERT INTO room (
+        INSERT INTO room_information (
             room_number,
             room_address,
             room_area,
@@ -37,7 +37,7 @@
     </insert>
 
     <update id="update">
-        UPDATE room SET
+        UPDATE room_information SET
                         room_number = #{RoomNumber},
                         room_address = #{RoomAddress},
                         room_area = #{RoomArea},
@@ -50,23 +50,23 @@
     </update>
 
     <delete id="delete">
-        DELETE FROM room WHERE room_id = #{roomId}
+        DELETE FROM room_information WHERE room_id = #{roomId}
     </delete>
 
     <select id="selectById" resultMap="RoomResultMap">
-        SELECT * FROM room WHERE room_id = #{roomId}
+        SELECT * FROM room_information WHERE room_id = #{roomId}
     </select>
 
     <select id="selectAll" resultMap="RoomResultMap">
-        SELECT * FROM room
+        SELECT * FROM room_information
     </select>
 
     <select id="selectByPropertyId" resultMap="RoomResultMap">
-        SELECT * FROM room WHERE property_id = #{propertyId}
+        SELECT * FROM room_information WHERE property_id = #{propertyId}
     </select>
 
     <select id="selectByConditions" resultMap="RoomResultMap">
-        SELECT * FROM room
+        SELECT * FROM room_information
         <where>
             <if test="params.roomNumber != null">
                 AND room_number = #{params.roomNumber}
