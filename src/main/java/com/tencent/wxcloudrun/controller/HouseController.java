@@ -3,6 +3,7 @@ package com.tencent.wxcloudrun.controller;
 import com.tencent.wxcloudrun.config.JsonResult;
 import com.tencent.wxcloudrun.model.HouseInfo;
 import com.tencent.wxcloudrun.service.HouseInfoService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class HouseController {
     }
 
     @GetMapping(value = "/api/house/gethouse")
-    public JsonResult<HouseInfo> gethouse(@RequestParam Long id) {
+    public JsonResult<HouseInfo> gethouse(@Param("id") Long id) {
         if(id == null|| id <= 0)
             return new JsonResult<>("705", "参数错误");
         HouseInfo houseInfo = houseInfoService.getHouseByPropertyId(id);

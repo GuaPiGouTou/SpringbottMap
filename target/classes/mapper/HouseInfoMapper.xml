@@ -35,7 +35,7 @@
                )
     </insert>
 
-
+<!--    根据id查询记录-->
     <select id="getHouseInfoById" resultMap="houseInfoMap" parameterType="java.lang.Long">
         SELECT *
         FROM `property`

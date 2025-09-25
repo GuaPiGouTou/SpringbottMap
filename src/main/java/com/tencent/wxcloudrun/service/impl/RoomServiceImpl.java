@@ -29,7 +29,6 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Room [] selectByPropertyId(Long propertyId) {
-        Room [] rooms = roomMapper.selectByPropertyId(propertyId);
-        return rooms;
+        return roomMapper.selectByPropertyId(propertyId);
     }
 }
