@@ -4,10 +4,7 @@ import com.tencent.wxcloudrun.config.JsonResult;
 import com.tencent.wxcloudrun.model.HouseInfo;
 import com.tencent.wxcloudrun.service.HouseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -32,5 +29,16 @@ public class HouseController {
         return new JsonResult<>("905", "系统异常");
     }
 
+    @GetMapping(value = "/api/house/gethouse")
+    public JsonResult<HouseInfo> gethouse(@RequestParam Long id) {
+        if(id == null|| id <= 0)
+            return new JsonResult<>("705", "参数错误");
+        HouseInfo houseInfo = houseInfoService.getHouseByPropertyId(id);
+        if(houseInfo.getId() == null)
+            return new JsonResult<>("705", "没有此房源信息");
+        if(houseInfo.getRoom().length==0)
+            return new JsonResult<>("705", "没有此房源信息");
+        return new JsonResult<>(houseInfo, "获取房源信息成功");
+    }
 
 }

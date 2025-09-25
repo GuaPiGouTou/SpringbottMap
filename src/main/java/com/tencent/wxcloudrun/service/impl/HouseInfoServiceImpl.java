@@ -3,6 +3,7 @@ package com.tencent.wxcloudrun.service.impl;
 import com.tencent.wxcloudrun.dao.HouseInfoMapper;
 import com.tencent.wxcloudrun.model.HouseInfo;
 import com.tencent.wxcloudrun.model.Mark;
+import com.tencent.wxcloudrun.model.Room;
 import com.tencent.wxcloudrun.service.HouseInfoService;
 import com.tencent.wxcloudrun.service.MarkService;
 import com.tencent.wxcloudrun.service.RoomService;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -68,5 +70,13 @@ public class HouseInfoServiceImpl implements HouseInfoService {
         // 根据ID查询房屋信息，使用Optional避免空指针
         return Optional.ofNullable(houseMapper.getHouseById(id))
                 .orElseThrow(() -> new RuntimeException("房屋信息不存在，ID: " + id));
+    }
+
+    @Override
+    public HouseInfo getHouseByPropertyId(Long propertyId) {
+        HouseInfo houseInfo = houseMapper.getHouseById(propertyId);
+        Room [] rooms = roomService.selectByPropertyId(houseInfo.getId());
+        houseInfo.setRoom( rooms);
+        return houseInfo;
     }
 }

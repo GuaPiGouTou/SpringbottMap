@@ -6,6 +6,9 @@ import com.tencent.wxcloudrun.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
+
 @Service
 public class RoomServiceImpl implements RoomService {
 
@@ -22,5 +25,11 @@ public class RoomServiceImpl implements RoomService {
         count = roomMapper.insert(room);
 
         return count;
+    }
+
+    @Override
+    public Room [] selectByPropertyId(Long propertyId) {
+        Room [] rooms = roomMapper.selectByPropertyId(propertyId);
+        return rooms;
     }
 }

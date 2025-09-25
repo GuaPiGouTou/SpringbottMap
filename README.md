@@ -291,3 +291,16 @@ DELIMITER ;
 ```
 
 3.将房源信息表的接口编写完成，缺少room信息提交
+
+
+
+### 2525-9-18
+
+1.完成房源信息的上传，保证了在上传房源信息后，地图标记能正确加入，以及房间信息同步上传
+
+2.修复Mark实体类中缺少count字段的问题
+
+3.修复MarkMapper.xml文件中title，count字段的映射
+
+4.修复MarkMapper.xml文件中insertMark标签下上传标记时没有上传标题和count字段
+

@@ -5,4 +5,5 @@ import com.tencent.wxcloudrun.model.HouseInfo;
 public interface HouseInfoService {
     int saveHouse(HouseInfo houseInfo);
     HouseInfo getHouseById(Long id);
+    HouseInfo getHouseByPropertyId(Long propertyId);
 }

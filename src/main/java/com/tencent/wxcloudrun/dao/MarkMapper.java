@@ -8,4 +8,5 @@ public interface MarkMapper {
     int insertMark(Mark mark);
     List< Mark> getAllMarks();
     Integer getMarkByPropertyId(int id);
+    Mark getMarkById(Integer makeID);
 }

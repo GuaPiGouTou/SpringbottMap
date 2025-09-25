@@ -8,6 +8,6 @@ public interface MarkService {
     int insertMark(Mark mark);
 
     List<Mark> getAllMarks(String houseId);
-
+    Mark getMarkById(Integer makeID);
     Integer getMarkByPropertyId(int id);
 }

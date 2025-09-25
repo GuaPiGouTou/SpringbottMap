@@ -29,4 +29,10 @@ public class MarkController {
         List<Mark> marks = markService.getAllMarks(houseId);
         return new JsonResult<>(marks,"获取所有标记成功");
     }
+
+    @GetMapping(value = "/api/mark/markID")
+    public JsonResult<Mark> GetMark(Integer makeID){
+        Mark mark = markService.getMarkById(makeID);
+        return new JsonResult<>(mark,"获取标记成功");
+    }
 }

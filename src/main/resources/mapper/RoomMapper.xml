@@ -35,7 +35,10 @@
                      #{PropertyId}
                  )
     </insert>
-
+<!--    根据房源id查询房间-->
+    <select id="selectByPropertyId" resultMap="RoomResultMap">
+        SELECT * FROM room_information WHERE property_id = #{PropertyId}
+    </select>
 <!--    <update id="update">-->
 <!--        UPDATE room_information SET-->
 <!--                        room_number = #{RoomNumber},-->
@@ -61,9 +64,7 @@
 <!--        SELECT * FROM room_information-->
 <!--    </select>-->
 
-<!--    <select id="selectByPropertyId" resultMap="RoomResultMap">-->
-<!--        SELECT * FROM room_information WHERE property_id = #{propertyId}-->
-<!--    </select>-->
+
 
 <!--    <select id="selectByConditions" resultMap="RoomResultMap">-->
 <!--        SELECT * FROM room_information-->
