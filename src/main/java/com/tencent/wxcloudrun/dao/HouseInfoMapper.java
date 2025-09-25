@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Param;
 
 public interface HouseInfoMapper {
     int insertHouseInfo(HouseInfo houseInfo);
-    HouseInfo getHouseById(@Param("id") Long id);
+    HouseInfo getHouseInfoById(@Param("id") Long id);
 }

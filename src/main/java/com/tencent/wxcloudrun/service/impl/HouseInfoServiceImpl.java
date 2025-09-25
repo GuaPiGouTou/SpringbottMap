@@ -64,17 +64,11 @@ public class HouseInfoServiceImpl implements HouseInfoService {
     }
 
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public HouseInfo getHouseById(Long id) {
-        // 根据ID查询房屋信息，使用Optional避免空指针
-        return Optional.ofNullable(houseMapper.getHouseById(id))
-                .orElseThrow(() -> new RuntimeException("房屋信息不存在，ID: " + id));
-    }
+
 
     @Override
     public HouseInfo getHouseByPropertyId(Long propertyId) {
-        HouseInfo houseInfo = houseMapper.getHouseById(propertyId);
+        HouseInfo houseInfo = houseMapper.getHouseInfoById(propertyId);
         Room [] rooms = roomService.selectByPropertyId(houseInfo.getId());
         houseInfo.setRoom( rooms);
         return houseInfo;
