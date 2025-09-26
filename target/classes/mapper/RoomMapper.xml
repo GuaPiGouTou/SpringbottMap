@@ -37,7 +37,7 @@
     </insert>
 <!--    根据房源id查询房间-->
     <select id="selectByPropertyId" resultMap="RoomResultMap">
-        SELECT * FROM room_information WHERE property_id = #{PropertyId}
+        SELECT * FROM room_information WHERE PropertyId = #{PropertyId}
     </select>
 <!--    <update id="update">-->
 <!--        UPDATE room_information SET-->
