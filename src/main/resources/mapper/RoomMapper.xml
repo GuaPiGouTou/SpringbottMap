@@ -3,16 +3,19 @@
 <mapper namespace="com.tencent.wxcloudrun.dao.RoomMapper">
 
     <resultMap id="RoomResultMap" type="com.tencent.wxcloudrun.model.Room">
-        <id property="RoomId" column="room_id"/>
-        <result property="RoomNumber" column="room_number"/>
-        <result property="RoomAddress" column="room_address"/>
-        <result property="RoomArea" column="room_area"/>
-        <result property="RoomType" column="room_type"/>
-        <result property="RoomPayment" column="room_payment" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
-        <result property="RoomFurniture" column="room_furniture" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
-        <result property="RoomVideo" column="room_video" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
-        <result property="PropertyId" column="property_id"/>
+        <id property="RoomId" column="RoomId"/>
+        <result property="RoomNumber" column="RoomNumber"/>
+        <result property="RoomAddress" column="RoomAddress"/>
+        <result property="RoomArea" column="RoomArea"/>
+        <result property="RoomType" column="RoomType"/>
+        <result property="RoomPayment" column="RoomPayment" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="RoomFurniture" column="RoomFurniture" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="RoomVideo" column="RoomVideo" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
+        <result property="PropertyId" column="PropertyId"/>
+        <result property="CreateTime" column="CreateTime"/>
+        <result property="UpdateTime" column="UpdateTime"/>
     </resultMap>
+
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="RoomId">
         INSERT INTO room_information (

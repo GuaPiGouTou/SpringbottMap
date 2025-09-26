@@ -3,10 +3,14 @@ package com.tencent.wxcloudrun.model;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.security.Timestamp;
 import java.util.Map;
 
 @Data
 public class Room {
+    private Timestamp CreateTime;
+    private Timestamp UpdateTime;
+
     private  Long  RoomId; //房间信息ID
     private String RoomNumber;//房间号
     private String RoomAddress;//房间具体地址

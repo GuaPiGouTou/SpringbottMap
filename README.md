@@ -225,6 +225,38 @@ curl https://<云托管服务域名>/api/count
 
 
 
+### `GET /api/house/gethouse`
+
+根据id获取房源信息
+
+#### 请求参数
+
+`id`:`Integer`
+
+#### 响应结果
+
+- `code`：错误码
+- `data`：所有标记
+- `msg`:信息提示
+
+##### 响应结果示例
+
+```json
+{
+  "code": 0,
+  "data": ,
+  "msg":"获取房源信息成功"
+}
+```
+
+#### 调用示例
+
+```
+curl https://<云托管服务域名>/api/house/gethouse?id=38
+```
+
+
+
 
 
 ## 
