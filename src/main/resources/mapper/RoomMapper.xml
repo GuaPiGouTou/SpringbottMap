@@ -12,8 +12,8 @@
         <result property="RoomFurniture" column="RoomFurniture" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
         <result property="RoomVideo" column="RoomVideo" typeHandler="com.tencent.wxcloudrun.utils.JsonTypeHandler"/>
         <result property="PropertyId" column="PropertyId"/>
-        <result property="CreateTime" column="CreateTime"/>
-        <result property="UpdateTime" column="UpdateTime"/>
+        <result property="CreateTime" column="CreateTime" typeHandler="org.apache.ibatis.type.DateTypeHandler"/>
+        <result property="UpdateTime" column="UpdateTime" typeHandler="org.apache.ibatis.type.DateTypeHandler"/>
     </resultMap>
 
 
