@@ -9,8 +9,7 @@ import java.util.Map;
 
 @Data
 public class Room {
-    private Timestamp CreateTime;
-    private Timestamp UpdateTime;
+  
 
     private  Long  RoomId; //房间信息ID
     private String RoomNumber;//房间号
