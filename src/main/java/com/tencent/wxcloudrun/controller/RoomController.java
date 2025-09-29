@@ -2,10 +2,12 @@ package com.tencent.wxcloudrun.controller;
 
 
 import com.tencent.wxcloudrun.config.JsonResult;
+import com.tencent.wxcloudrun.model.Room;
 import com.tencent.wxcloudrun.service.RoomService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,6 +22,16 @@ public class RoomController {
             return new JsonResult<>("200","删除成功");
         else
             return new JsonResult<>("805","删除失败");
+
+    }
+    @PostMapping(value = "/api/room/insert")
+    public JsonResult<String> insertroom(Room  room)
+    {
+        int count = roomService.insertRoom(room);
+        if(count>0)
+            return new JsonResult<>("200","插入成功");
+        else
+            return new JsonResult<>("805","插入失败");
 
     }
 }
