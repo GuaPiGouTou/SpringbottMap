@@ -28,6 +28,12 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public int delete(Long RoomId) {
+        int count = roomMapper.delete(RoomId);
+        return count;
+    }
+
+    @Override
     public Room [] selectByPropertyId(Long propertyId) {
         return roomMapper.selectByPropertyId(propertyId);
     }

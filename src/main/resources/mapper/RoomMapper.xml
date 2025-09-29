@@ -40,6 +40,11 @@
     <select id="selectByPropertyId" resultMap="RoomResultMap">
         SELECT * FROM room_information WHERE PropertyId = #{PropertyId}
     </select>
+
+    <!--    根据房间id删除房间-->
+    <delete id="delete">
+        DELETE FROM room_information WHERE RoomId = #{RoomId}
+    </delete>
 <!--    <update id="update">-->
 <!--        UPDATE room_information SET-->
 <!--                        room_number = #{RoomNumber},-->
@@ -53,9 +58,6 @@
 <!--        WHERE room_id = #{RoomId}-->
 <!--    </update>-->
 
-<!--    <delete id="delete">-->
-<!--        DELETE FROM room_information WHERE room_id = #{roomId}-->
-<!--    </delete>-->
 
 <!--    <select id="selectById" resultMap="RoomResultMap">-->
 <!--        SELECT * FROM room_information WHERE room_id = #{roomId}-->
